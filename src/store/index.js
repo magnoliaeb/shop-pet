@@ -1,3 +1,4 @@
+import { clearImmediate } from 'core-js'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import http from '../config/http'
@@ -13,22 +14,32 @@ export default new Vuex.Store({
   getters: {
     countCartList: state => {
       return state.cartList.length;
-    }
+    },
+    totalCartList: state => {
+      return state.cartList.reduce((previous, current) => {
+        return (current.price * current.quantity )+  previous
+      }, 0)
+    },
   },
   mutations: {
     SET_PRODUCT(state, products) {
       state.products = products
     },
-    SET_CARTLIST(state, products) {
-      // state.cartList = products
-    }
+    ADD_PRODUCT_CART(state, product) {
+      state.cartList.push(product)
+    },
+    INCREMENT_QUANTITY(state, product) {
+      const index =  state.cartList.findIndex((item) =>  item.id === product.id )
+      state.cartList[index].quantity++
+      console.log(state.cartList[index])
+    },
   },
   actions: {
     async getProducts({ commit }) {
       const resp = await http.get('/product')
       const products = resp.data.map((item) => {
         return {
-          quantity: 0,
+          quantity: 1,
           ...item
         }
       })
@@ -37,11 +48,17 @@ export default new Vuex.Store({
       commit('SET_PRODUCT', products)
     },
    
-    addProductToCart({ commit}) {
-      const exist =  iterable.find((item) => {
+    addProductToCart(context, product) {
+      const exist =  context.rootState.cartList.some((item) => item.id === product.id)
+      
+      console.log(exist)
+      // si no existe el product add
+      if (!exist) {
+        context.commit('ADD_PRODUCT_CART', product)
+      } else {
         
-      })
-      // existe el product en el carrito
+        context.commit('INCREMENT_QUANTITY', product)
+      }
       // 
       
     }

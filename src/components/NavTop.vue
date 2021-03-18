@@ -3,7 +3,9 @@
         <div class="border-b border-gray-200 relative">
         <nav class="container mx-auto flex justify-between pt-3 items-center">
             <div>
-                <a href="#" class="font-bold text-2xl">LOGO</a>
+                <router-link class="font-bold text-2xl" :to="{ name: 'Home'}">
+                    LOGO
+                </router-link>
             </div>
             <div class="flex space-x-4 items-center">
                 <div class="relative">
