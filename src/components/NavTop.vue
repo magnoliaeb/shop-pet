@@ -44,7 +44,7 @@ import  { mapGetters } from 'vuex'
   components: { ListCart },
         data() {
             return {
-                showList: true
+                showList: false
             }
         },
         computed: {

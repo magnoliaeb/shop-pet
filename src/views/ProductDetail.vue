@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <ModalProductDetail :product="product" />
+    <ModalProductDetail @close="shoModal = $event" :product="product" :shoModal="shoModal" />
   </div>
 </template>
 
@@ -72,6 +72,7 @@ export default {
   data() {
     return {
       product: null,
+      shoModal: false
     };
   },
   watch: {
@@ -81,8 +82,10 @@ export default {
   methods: {
 
     getProduct(id) {
-      console.log(id)
-      
+
+      // console.log(id)
+      this.shoModal = true
+
       const product = this.products.find((item) => {
         return item.id === id
       });

@@ -1,9 +1,9 @@
 <template>
-    <div v-if="close" class="h-full bg-gray-700 bg-opacity-20 absolute inset-0 z-40 flex justify-center items-center overflow-hidden overscroll-none">
+    <div v-if="shoModal" class="h-full bg-gray-700 bg-opacity-20 absolute inset-0 z-40 flex justify-center items-center overflow-hidden overscroll-none">
         <div class="z-50 bg-white w-1/2 border-2 shadow-lg rounded-md">
         <div class="flex justify-between border-b border-gray-200 py-1 px-2">
             <p class="text-lg font-bold">Producto Agregado</p>
-            <div @click="close = false" class="w-6 h-6">
+            <div @click="closeModal" class="w-6 h-6">
 <svg class="h-full w-full text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="6" y2="18" />  <line x1="6" y1="6" x2="18" y2="18" /></svg>
             </div>
         </div>
@@ -39,20 +39,25 @@
 
 <script>
     export default {
-        data() {
-            return {
-                close: true
-            }
-        },
+        
         filters: {
             reduceText: function(value) {
                 return value.slice(0,200);
+            }
+        },
+        methods: {
+            closeModal() {
+                console.log('cerrar')
+                this.$emit('close', false)
             }
         },
         
         props: {
             product: {
                 type: Object,
+            },
+            shoModal: {
+                type: Boolean,
             },
         },
         
