@@ -25,7 +25,7 @@
             <p class="w-4 text-center">{{ product.quantity }}</p>
             <button @click="product.quantity--" class="w-4 h-full">-</button>
           </div>
-          <button @click="addProductToCart(product)" class="w-3/4 bg-primary-600 px-6 flex justify-center py-1">
+          <button :disabled="product.stock === 0" @click="addProductToCart(product)" class="w-3/4 bg-primary-600 px-6 flex justify-center py-1">
             <svg
               class="h-6 w-6 text-white"
               fill="none"

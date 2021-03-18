@@ -8,7 +8,11 @@
                 <p>Precio : $ {{ item.price }}</p>
             </div>
             <div>
-                <p>input</p>
+                <div class="text-sm flex items-center border-2 border-gray-700 w-1/4">
+            <button @click="item.quantity++" class="w-4 h-full">+</button>
+            <p class="w-4 text-center">{{ item.quantity }}</p>
+            <button @click="item.quantity--" class="w-4 h-full">-</button>
+          </div>
             </div>
             <div class="">
                 <span>Sun-total $ {{ item.price * item.quantity }}</span>

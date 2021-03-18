@@ -28,7 +28,7 @@
             </div>
             <div class="w-full flex space-x-4 mt-4">
                 <button class="px-6 w-full text-center rounded-md font-medium py-2 text-black bg-white">Seguir comprando</button>
-                <button @click="addProductToCart" class="px-6 w-full text-center rounded-md font-medium py-2 text-white bg-gray-700">Agregar al carro</button>
+                <button @click="addProductToCart(product)" class="px-6 w-full text-center rounded-md font-medium py-2 text-white bg-gray-700">Agregar al carro</button>
             </div>
 
             </div>

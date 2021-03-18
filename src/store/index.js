@@ -29,6 +29,7 @@ export default new Vuex.Store({
       state.cartList.push(product)
     },
     INCREMENT_QUANTITY(state, product) {
+      
       const index =  state.cartList.findIndex((item) =>  item.id === product.id )
       state.cartList[index].quantity++
       console.log(state.cartList[index])
@@ -51,10 +52,11 @@ export default new Vuex.Store({
     addProductToCart(context, product) {
       const exist =  context.rootState.cartList.some((item) => item.id === product.id)
       
-      console.log(exist)
+      
       // si no existe el product add
       if (!exist) {
         context.commit('ADD_PRODUCT_CART', product)
+      
       } else {
         
         context.commit('INCREMENT_QUANTITY', product)
