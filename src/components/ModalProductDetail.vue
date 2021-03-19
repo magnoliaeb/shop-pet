@@ -1,5 +1,5 @@
 <template>
-    <div v-if="shoModal" class="h-full bg-gray-700 bg-opacity-20 absolute inset-0 z-40 flex justify-center items-center overflow-hidden overscroll-none">
+    <div v-if="shoModal" class="h-full fixed z-10 inset-0 overflow-y-auto bg-gray-700 bg-opacity-20  flex justify-center items-center overflow-hidden overscroll-none">
         <div class="z-50 bg-white w-1/2 border-2 shadow-lg rounded-md">
         <div class="flex justify-between border-b border-gray-200 py-1 px-2">
             <p class="text-lg font-bold">Producto Agregado</p>
@@ -10,7 +10,7 @@
         <div class="mx-10 py-8">
             <div class="flex justify-between flex-wrap">
                 <div class="w-5/12 p-4">
-                    <img class="h-80 w-full object-cover" :src="product.photo" alt="">
+                    <img class="h-64 w-full object-cover" :src="product.photo" alt="">
                 </div>
                 <div class="w-7/12 p-4">
                     <h2 class="text-3xl font-medium">{{ product.name }}</h2>
