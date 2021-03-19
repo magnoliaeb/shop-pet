@@ -3,7 +3,7 @@
     <div>
       <div class="flex justify-between">
         <div>
-          <h1 class="text-3xl font-medium px-10">Categoría 2</h1>
+          <h1 class="text-3xl font-medium px-10">Lista de productos</h1>
           <!-- bread -->
           <Breadcrumb />
         </div>
