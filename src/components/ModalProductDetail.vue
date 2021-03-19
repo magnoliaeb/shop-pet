@@ -1,5 +1,5 @@
 <template>
-    <div v-if="shoModal" class="h-full fixed z-10 inset-0 overflow-y-auto bg-gray-700 bg-opacity-20  flex justify-center items-center overflow-hidden overscroll-none">
+    <div v-if="shoModal" class="h-full fixed z-50 inset-0 overflow-y-auto bg-gray-700 bg-opacity-20  flex justify-center items-center overflow-hidden overscroll-none">
         <div class="z-50 bg-white w-1/2 border-2 shadow-lg rounded-md">
         <div class="flex justify-between border-b border-gray-200 py-1 px-2">
             <p class="text-lg font-bold">Producto Agregado</p>
