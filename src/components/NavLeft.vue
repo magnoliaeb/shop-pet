@@ -1,5 +1,5 @@
 <template>
-  <div class="px-6 border-r border-gray-300 fiexed h-full w-full">
+  <div class="px-6 border-r border-gray-300 fiexed h-full w-ful">
     <div class="flex justify-between items-center py-4">
       <h2 class="text-2xl font-semibold">Categorias</h2>
       <div class="h-6 w-6 flex-none">
@@ -20,7 +20,7 @@
     </div>
     <div class="space-y-1">
       <div class="py-1 text-sm px-4" v-for="item in categories" :key="item.id">
-        <router-link class="flex justify-between" :to="{ name: 'Category', params: { id: item.id }}">
+        <router-link class="flex justify-between" :to="{ name: 'Category', params: { id: item.id }}" active-class="font-bold">
           <p>{{ item.name }}</p>
           <div class="w-6 h-6">
             <svg
@@ -45,19 +45,20 @@
 </template>
 
 <script>
-import http from '../config/http'
+import { mapState, mapActions } from 'vuex';
+mapState
 export default {
-  data() {
-    return {
-      categories: [],
-    };
+  computed: {
+    ...mapState(['categories'])
+  },
+  methods: {
+    ...mapActions(['getCategories'])
   },
   async created () {
-
-    const resp = await http.get('/product-category')
-    this.categories = resp.data
-    
+    await this.getCategories()
   },
+
+  
 };
 </script>
 

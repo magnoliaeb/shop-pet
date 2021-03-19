@@ -6,7 +6,7 @@
 <div class="flex">
 
       <div class="w-1/5">
-        <NavLeft class="" />
+        <NavLeft class="h-screen" />
       </div>
       <div class="w-4/5">
         <router-view></router-view>

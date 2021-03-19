@@ -3,7 +3,7 @@
     <div>
       <div class="flex justify-between">
         <div>
-          <h1 class="text-3xl font-medium px-10">Categoría 2</h1>
+          <h1 class="text-3xl font-medium px-10">Lista de products</h1>
           <!-- bread -->
           <Breadcrumb />
         </div>
@@ -36,7 +36,7 @@
 import Breadcrumb from "../components/Breadcrumb.vue";
 import Paginate from "../components/Paginate.vue";
 import Product from "../components/Product.vue";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 import ModalProductDetail from "../components/ModalProductDetail.vue";
 
 export default {
@@ -44,6 +44,7 @@ export default {
 
   computed: {
     ...mapState(["products"]),
+    ...mapGetters(["searchProductByName"]),
   },
   created() {
     this.$store.dispatch("getProducts");

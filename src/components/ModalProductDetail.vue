@@ -27,7 +27,7 @@
                 <p>{{ product.description | reduceText }}</p>
             </div>
             <div class="w-full flex space-x-4 mt-4">
-                <button class="px-6 w-full text-center rounded-md font-medium py-2 text-black bg-white">Seguir comprando</button>
+                <button @click="closeModal" class="px-6 w-full text-center rounded-md font-medium py-2 text-black bg-white">Seguir comprando</button>
                 <button @click="addProductToCart(product)" class="px-6 w-full text-center rounded-md font-medium py-2 text-white bg-gray-700">Agregar al carro</button>
             </div>
 
@@ -49,7 +49,6 @@ import { mapActions } from 'vuex';
         },
         methods: {
             closeModal() {
-                console.log('cerrar')
                 this.$emit('close', false)
             },
             ...mapActions(['addProductToCart'])
