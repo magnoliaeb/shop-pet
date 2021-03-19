@@ -19,13 +19,13 @@
       <div class="py-4">
         <h3 class="font-medium my-2 truncate">{{ product.name }}</h3>
         <p>{{ product.price }}</p>
-        <div class="flex">
-          <div class="text-sm flex items-center border-2 border-gray-700 w-1/4">
+        <div class="flex justify-between">
+          <div class="text-sm flex items-center py-1 rounded-full border border-gray-400 px-1">
             <button @click="product.quantity++" class="w-4 h-full">+</button>
             <p class="w-4 text-center">{{ product.quantity }}</p>
             <button @click="product.quantity--" class="w-4 h-full">-</button>
           </div>
-          <button :disabled="product.stock === 0" @click="addProductToCart(product)" class="w-3/4 bg-primary-600 px-6 flex justify-center py-1">
+          <button :disabled="product.stock === 0" @click="addProductToCart(product)" class="w-auto bg-primary-600 px-6 flex justify-center py-1 rounded-md">
             <svg
               class="h-6 w-6 text-white"
               fill="none"
